@@ -7,10 +7,14 @@ import java.util.logging.Filter;
 
 public class Main {
     public static void main(String[] args) {
+        String array[] =
+                new String[]{"1rewf ", "feefewf", "a", null, "1"};
 
+        String[] newArray = (String[]) filter(array, new ClassImplementsFilter());
+        Arrays.stream(newArray).forEach(System.out::println);
     }
 
-    public static <T> T[] filter(T[] array, Function<? super T, Boolean> filter) {
+    public static <T> T[] filter(T[] array, ClassImplementsFilter<T> filter) {
         int offset = 0;
 
         for (int i = 0; i < array.length; i++) {
